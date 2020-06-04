@@ -57,7 +57,7 @@ class CMakeBuild(build_ext):
                       '-DPYTORCH_VERSION={}'.format(PYTORCH_VERSION_NUMBER)
                       ] #  -arch=sm_61
         if not torch.cuda.is_available() and SPCONV_FORCE_BUILD_CUDA is None:
-            cmake_args += ['-DSPCONV_BuildCUDA=OFF']
+            cmake_args += ['-DSPCONV_BuildCUDA=ON']
         else:
             cuda_flags = ["\"--expt-relaxed-constexpr\""]
             # must add following flags to use at::Half
